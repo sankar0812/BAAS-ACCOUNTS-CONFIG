@@ -10,9 +10,9 @@ SMTP_USERNAME="it.support@gove.co"
 SMTP_PASSWORD="SolWer@345"
 SMTP_FROM="it.support@gove.co"
 SMTP_TO="thanga.mariappan@gove.co,harish_raj@gove.co,dineshpandian@gove.co,senthilkumar@gove.co,arumugam.petchikumar@gove.co"
-SMTP_SUBJECT="[TEST FAILED] - [DEPLOYMENT ENDS]: DEV_BASS-ACCOUNTS-WEB-CLIENT"
+SMTP_SUBJECT="[TEST FAILED] - [DEPLOYMENT ENDS]: TEST_BASS-ACCOUNTS-WEB-CLIENT"
 SMTP_BODY="The Test cases are failed. So,the code is reverted back and attached the test report.Check the code once again."
-SMTP_ATTACHMENT="/ops/jenkins/workspace/DEV_BASS-ACCOUNTS-WEB-CLIENT/test-report.html"
+SMTP_ATTACHMENT="/ops/jenkins/workspace/TEST_BASS-ACCOUNTS-WEB-CLIENT/test-report.html"
 
 # Send email with attachment using swaks
 swaks --from $SMTP_FROM \

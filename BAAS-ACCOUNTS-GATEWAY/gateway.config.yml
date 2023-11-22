@@ -1,0 +1,94 @@
+# CreatedBy    : Sreedhar
+# CreatedTime  : Sep 25 2023
+# ModifiedBy   : Sreedhar
+# ModifiedTime : Sep 25 2023
+# Description  : "This file is used to configure the Client and Remote URL"
+
+
+http:
+  port: 4004
+admin:
+  port: 9876
+  host: localhost
+
+# Adding all the paths to allow for remote services
+apiEndpoints:
+  baasAccountsRestDataAccessPath:
+    paths:
+      [
+        "/api/rest/accounts/dataaccess/*",
+      ]
+  baasAccountsRestBusinessPath:
+    paths:
+      [
+        "/api/rest/accounts/business/*",
+      ]
+
+# Adding the host/ port of all the remote services
+serviceEndpoints:
+  baasAccountsRestDataAccessBaseURL:
+    url: "http://baasaccountsrestdataaccess-container:6001"
+  baasAccountsRestBusinessBaseURL:
+    url: "http://baasaccountsrestbusiness-container:5005"
+
+# Adding policies
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+  - jwt
+  - request-transformer
+
+# Adding pipelines to all the remote services
+pipelines:
+  baasAccountsRestDataAccessPipeline:
+    apiEndpoints:
+      - baasAccountsRestDataAccessPath
+    policies:
+      - cors:
+        - action:
+            origin: "*"
+            credentials: true
+      - rate-limit:
+          - action:
+              max: 50
+              windowMs: 1000
+              message: 'Too many requests, please try again later.'
+
+      - request-transformer:
+          - action:
+              headers:
+                add:
+                  authorization: "'Basic UVAwMTkyOTIzMjMyTEQ6OTI3TkJHSkowMjgzSEtBNzQ3ODI='"
+      - proxy:
+          - action:
+              serviceEndpoint: baasAccountsRestDataAccessBaseURL
+              changeOrigin: true
+
+  baasAccountsRestBusinessPipeline:
+    apiEndpoints:
+      - baasAccountsRestBusinessPath
+    policies:
+      - cors:
+        - action:
+            origin: "*"
+            credentials: true
+      - rate-limit:
+          - action:
+              max: 50
+              windowMs: 1000
+              message: 'Too many requests, please try again later.'
+      - request-transformer:
+          - action:
+              headers:
+                add:
+                  authorization: "'Basic UVAwMTkyOTIzMjMyTEQ6OTI3TkJHSkowMjgzSEtBNzQ3ODI='"
+      - proxy:
+          - action:
+              serviceEndpoint: baasAccountsRestBusinessBaseURL
+              changeOrigin: true

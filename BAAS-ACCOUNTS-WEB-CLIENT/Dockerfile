@@ -16,7 +16,7 @@ COPY . .
 
 # Install dependencies
 RUN npm install -f
-RUN npm install sonar-scanner
+#RUN npm install sonar-scanner
 
 # RUN npm run sonar
 
@@ -37,7 +37,7 @@ COPY --from=build /baasaccountswebclient/.npmrc ./.npmrc
 #RUN npm install -f
 COPY . .
 # Expose the necessary port(s)
-EXPOSE 3000
+EXPOSE 3003
 
 # Start the application
-CMD ["npx", "next", "start", "-p", "3000"]
+CMD ["npx", "next", "start", "-p", "3003"]

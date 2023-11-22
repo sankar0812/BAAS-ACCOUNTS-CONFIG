@@ -6,7 +6,7 @@ COPY .npmrc /baasaccountsrestdataaccess
 
 COPY config.js .
 
-EXPOSE 3000
+EXPOSE 6001
 
 RUN apt-get update
 RUN apt-get install -y openssl
@@ -17,4 +17,4 @@ COPY . /baasaccountsrestdataaccess
 
 RUN npm run schema-generate
 
-CMD npm start
+CMD npm run local

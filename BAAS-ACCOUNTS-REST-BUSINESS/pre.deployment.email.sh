@@ -4,8 +4,8 @@ SMTP_USERNAME="it.support@gove.co"
 SMTP_PASSWORD="SolWer@345"
 SMTP_FROM="it.support@gove.co"
 SMTP_TO="thanga.mariappan@gove.co,harish_raj@gove.co,dineshpandian@gove.co,karthick@gove.co,arumugam.petchikumar@gove.co,ayerathammal.paramasivan@gove.co,uma.kohila@gove.co,pradeepa.sekar@gove.co,diviya.rathinamoorthi@gove.co,senthilkumar@alitasys.com"
-SMTP_SUBJECT="[DEV] - [DEPLOYMENT STARTS] : DEV_BASS-ACCOUNTS-REST-BUSINESS"_${BUILD_NUMBER}
-SMTP_BODY="Automated Deployment for DEV_BASS-ACCOUNTS-REST-BUSINESS has been initiated by code change in the origin/develop branch, please stand by, an email will be sent after deployment has been completed."
+SMTP_SUBJECT="[TEST] - [DEPLOYMENT STARTS] : TEST_BASS-ACCOUNTS-REST-BUSINESS"_${BUILD_NUMBER}
+SMTP_BODY="Automated Deployment for TEST_BASS-ACCOUNTS-REST-BUSINESS has been initiated by code change in the origin/develop branch, please stand by, an email will be sent after deployment has been completed."
 # Combine the message body and signature
 message_with_signature="$SMTP_BODY\n\n Tech Ops\n Gove Enterprises"
 

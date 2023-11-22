@@ -23,7 +23,7 @@ SMTP_USERNAME="it.support@gove.co"
 SMTP_PASSWORD="SolWer@345"
 SMTP_FROM="it.support@gove.co"
 SMTP_TO="thanga.mariappan@gove.co,harish_raj@gove.co,dineshpandian@gove.co,karthick@gove.co,arumugam.petchikumar@gove.co,ayerathammal.paramasivan@gove.co,uma.kohila@gove.co,pradeepa.sekar@gove.co,diviya.rathinamoorthi@gove.co,senthilkumar@alitasys.com"
-SMTP_SUBJECT="[DEV] - [DEPLOYMENT ENDS] : DEV_BAAS-ACCOUNTS-REST-DATA-ACCESS"_${BUILD_NUMBER}
+SMTP_SUBJECT="[TEST] - [DEPLOYMENT ENDS] : TEST_BAAS-ACCOUNTS-REST-DATA-ACCESS"_${BUILD_NUMBER}
 SMTP_BODY="Automated Deployment is completed, latest code has been deployed and we have attached the CONSOLE OUTPUT log for your reference. Happy coding!!"
 #SMTP_ATTACHMENT="/ops/Jenkins-Build-Report/pipeline-console-output/PLATFORM-GATEWAY-CONSOLE-OUTPUT.txt"
 

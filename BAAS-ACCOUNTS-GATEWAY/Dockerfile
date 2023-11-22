@@ -1,15 +1,15 @@
 FROM node:16-slim AS builder
-WORKDIR /baasaccountsrestbusiness
+WORKDIR /baasaccountsgateway
 COPY package.json .
 RUN npm i
 
 # Create a new stage for the production image
 FROM node:16-slim
-WORKDIR /baasaccountsrestbusiness
+WORKDIR /baasaccountsgateway
 
 # Copy only necessary files from the builder stage
-COPY --from=builder /baasaccountsrestbusiness/node_modules ./node_modules
+COPY --from=builder /baasaccountsgateway/node_modules ./node_modules
 COPY . .
 
-EXPOSE 5005
+EXPOSE 4004
 CMD npm start
